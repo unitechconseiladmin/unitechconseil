@@ -327,17 +327,30 @@ function deleteSelectedItems() {
 
 
 
-// Fonction pour sauvegarder le texte en fichier
-function saveText() {
-    const title = document.getElementById('title').value;
+async function saveText() {
+    const title = document.getElementById('title').value || 'document'; // Utilise 'document' si le titre est vide
     const content = document.getElementById('editor').innerHTML;
     const blob = new Blob([`${title}\n${content}`], { type: 'text/html' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${title}.html`;
-    a.click();
-    URL.revokeObjectURL(url);
+
+    // Utilisation de la File System Access API
+    try {
+        const handle = await window.showSaveFilePicker({
+            suggestedName: `${title}.html`,
+            types: [{
+                description: 'HTML files',
+                accept: {
+                    'text/html': ['.html']
+                }
+            }]
+        });
+
+        const writable = await handle.createWritable();
+        await writable.write(blob);
+        await writable.close();
+        alert('Fichier sauvegardé avec succès !');
+    } catch (err) {
+        console.error('Erreur de sauvegarde :', err);
+    }
 }
 
 // Fonction pour charger un fichier texte
