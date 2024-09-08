@@ -157,14 +157,25 @@
         color: red;
     }
 
+    .whatsapp{
+        padding: 5px 2px;
+        background-color: green;
+    }
+
     .btnbar{
+        padding: 5px 2px;
         min-width: 100%;
         background-color: black;
-        padding: 2px;
         color:rgb(0, 132, 255);
         display: flex;
         align-items: center;
         gap: 5px;
+    }
+    .btnbar button, .twitter button, .whatsapp button{
+        padding: 2px;
+        height: 20px;
+        width: 40px;
+        font-size: 16[x];
     }
     .btnbar select{
         min-width: 70px;
@@ -179,9 +190,7 @@
     .btnbar select > option{
         color: blue;
     }
-    .whatsapp{
-        background-color: green;
-    }
+   
     
     
     .editor{
