@@ -1,0 +1,40 @@
+#chat-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+#chat-box {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.user, .bot {
+    margin-bottom: 10px;
+}
+.user {
+    text-align: right;
+}
+.bot {
+    text-align: left;
+}
+#input-container {
+    display: flex;
+    padding: 10px;
+    background-color: #eee;
+}
+#user-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+#send-btn {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
